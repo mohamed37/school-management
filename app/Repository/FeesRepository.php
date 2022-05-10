@@ -64,7 +64,6 @@ class FeesRepository implements FeesRepositoryInterface
 
    }catch(\Exception $ex)
    {
-      return $ex;
       toastr()->error(trans('messages.error'));
       return redirect()->back();
    }

@@ -49,7 +49,7 @@
                                     <td>{{$teacher->joining_Date}}</td>
                                     <td>{{$teacher->specializations->name}}</td>
                                     <td>
-                                        <a href="{{route('teachers.edit',$teacher->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
+                                        <a href="{{route('teachers.edit',encrypt($teacher->id))}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete_Teacher{{ $teacher->id }}" title="{{ trans('main_trans.delete') }}"><i class="fa fa-trash"></i></button>
                                     </td>
                                 </tr>

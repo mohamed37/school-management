@@ -27,14 +27,7 @@ class Student extends Authenticatable
 
     public $timestamps = true;
     
-    public function scopeSelection()
-    {
-        return $this->select('id', 'name', 'email', 'password', 'academic_year', 
-                              'date_birth', 'grade_id', 'gender_id' ,'nationalitie_id', 'blood_id', 'classroom_id', 'section_id', 'parent_id');
-    }
-
-
-
+   
     public function setPasswordAttribute($password)
     {
         if(!empty($password))
@@ -89,6 +82,11 @@ class Student extends Authenticatable
         return $this->hasMany(studentAccount::class, 'student_id');
     }
     
+    public function fees_invoices()
+    {
+        return $this->hasMany(fees_invoices::class, 'student_id');
+    }
+
     public function payment_student()
     {
         return $this->hasMany(PaymentStudent::class, 'student_id');

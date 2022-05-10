@@ -23,6 +23,8 @@ return  [
     
     'attention_save' => ' Are you sure to save the data',
     'add_parent' => 'Add Parents',
+    'parents' => ' Information of Parents',
+
     'attachments' => 'Attachments',
     'error_attach' => "An Item Cannot Be Deleted Before Its Attachments Are Deleted",
 ];

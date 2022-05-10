@@ -28,6 +28,9 @@ return [
     'statment' => ' البيان ',
     'choose' => 'اختار من القائمة',
 
+    'paid_amount' => 'المبلغ المدفوع',
+    'prescribed_amount' => 'المبلغ المطلوب دفعه',
+    'remaining_amount' => 'المبلغ المتبقي',
     
 
    'add_receipt_students' => 'اضافة سند قبض ',
@@ -35,9 +38,9 @@ return [
    'delete_receipt_students' => 'حذف سند قبض ',
 
 
-    'final_balance' => 'رصيد الطالب',
+    'rest_payment' => ' المطلوب دفعه',
 
-  
+  'processingFees' => 'رسوم مستبعده',
    'add_processingFees' => 'استبعاد رسوم ',
    'edit_processingFees' => ' تعديل رسوم مستبعده',
    'delete_processingFees' => 'حذف رسوم مستبعده ',

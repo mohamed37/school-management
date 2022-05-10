@@ -133,9 +133,9 @@
 
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">{{ trans('grades_trans.close') }}</button>
+                                                            data-dismiss="modal">{{ trans('main_trans.close') }}</button>
                                                         <button type="submit"
-                                                            class="btn btn-success">{{ trans('grades_trans.update') }}</button>
+                                                            class="btn btn-success">{{ trans('main_trans.update') }}</button>
                                                     </div>
                                                 </form>
 

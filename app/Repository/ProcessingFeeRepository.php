@@ -60,11 +60,19 @@ class ProcessingFeeRepository implements ProcessingFeeRepositoryInterface
          
          $student = new studentAccount();
          $student->date =  date('Y-m-d');
-         $student->type = 'ProcessingFee';
+         $student->type = 'ProcessingFees';
          $student->student_id = $request->student_id;
          $student->processing_id = $process->id;
          $student->debit = 0.00;
-         $student->credit = $request->debit;
+         
+         if($request->has('debit') && $request->debit <= $request->final_balance)
+         {
+            toastr()->error(trans('messages.not_allow_processingFees'));
+            return redirect()->back();
+         }else
+         {
+           $student->credit = $request->debit;
+         }
          $student->description = $request->description;
          $student->save();
    

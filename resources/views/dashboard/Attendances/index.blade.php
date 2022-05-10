@@ -19,9 +19,7 @@
      <div class="card card-statistics h-100">
            
         <div class="card-body">
-            <a class="button x-small" href="{{route('attendances.create')}}" >
-                {{ trans('sections_trans.add_section') }}</a>
-
+          
         @if ($errors->any())
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <ul>

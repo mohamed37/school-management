@@ -31,6 +31,8 @@ return [
     'required' =>  'عنوان الحدث مطلوب',
     'not_found' =>  'لا يوجد بيانات ',
 
+    'not_allow_processingFees' =>  'هذه العملية غير مسموح بها ',
+
 ];
 
 ?>

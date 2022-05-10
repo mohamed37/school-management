@@ -47,7 +47,7 @@
                                   
                                     <td>{{$payment->description}}</td>
                                     <td>
-                                        <a href="{{route('payment_students.edit',$payment->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
+                                        <a href="{{route('payment_students.edit',encrypt($payment->id))}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete_payment{{$payment->id}}" title="{{ trans('main_trans.delete') }}"><i class="fa fa-trash"></i></button>
                                     </td>
                                 

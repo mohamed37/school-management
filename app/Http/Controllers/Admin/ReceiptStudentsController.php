@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ReceiptRequest;
 use App\Repository\ReceiptStudentsRepositoryInterface;
 
 class ReceiptStudentsController extends Controller
@@ -22,7 +23,7 @@ class ReceiptStudentsController extends Controller
         return $this->receipt->show($id);
     }
 
-    public function store(Request $request)
+    public function store(ReceiptRequest $request)
     {
         return $this->receipt->insert($request);
     }

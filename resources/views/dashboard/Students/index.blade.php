@@ -21,10 +21,10 @@
                 <div class="card-body">
                     <a href="{{route('students.create')}}" class="btn btn-success btn-sm" role="button"
                         aria-pressed="true">{{ trans('students_trans.add_student') }}</a><br><br>
-                    <div class="table-responsive">
-                        <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
-                                data-page-length="50"
-                                style="text-align: center">
+                        <div class="table-responsive">
+                            <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
+                                   data-page-length="50"
+                                   style="text-align: center">
                             <thead>
                             <tr>
                                 <th>#</th>
@@ -53,7 +53,7 @@
                                     <td>{{$student->academic_year}}</td>
 
                                     <td>
-                                        <div class="dropdown show">
+                                       
                                             <a class="btn btn-success btn-sm dropdown-toggle" href="#"
                                                 role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                                 aria-haspopup="true" aria-expanded="false">
@@ -68,12 +68,7 @@
                                                     href="{{route('students.edit',encrypt($student->id))}}"><i
                                                         style="color:green" class="fa fa-edit"></i>&nbsp;
                                                         {{trans('students_trans.edit_student')}} </a>
-                                                <a class="dropdown-item"
-                                                data-target="#delete_student{{ $student->id }}"
-                                                data-toggle="modal"
-                                                href="#delete_student{{ $student->id }}"><i
-                                                    style="color: red" class="fa fa-trash"></i>&nbsp;
-                                                    {{trans('students_trans.delete_student')}}</a>        
+                                                     
                                                 <a class="dropdown-item"
                                                     href="{{route('feesInovice.show',encrypt($student->id))}}"><i
                                                         style="color: #0000cc" class="fa fa-money"></i>&nbsp;
@@ -84,12 +79,18 @@
                                                         class="fas fa-money-bill-alt"></i>&nbsp; &nbsp;
                                                         {{trans('fees_trans.add_receipt_students')}}</a>
                                                 <a class="dropdown-item"
-                                                    href="{{route('payment_students.show',encrypt($student->id))}}"><i
+                                                    href="{{route('processingFees.show',encrypt($student->id))}}"><i
                                                         style="color:goldenrod" class="fas fa-donate"></i>&nbsp;
-                                                    &nbsp;{{trans('fees_trans.add_payment_students')}}</a>
+                                                    &nbsp;{{trans('fees_trans.add_processingFees')}}</a>
+                                                    <a class="dropdown-item"
+                                                    data-target="#delete_student{{ $student->id }}"
+                                                    data-toggle="modal"
+                                                    href="#delete_student{{ $student->id }}"><i
+                                                        style="color: red" class="fa fa-trash"></i>&nbsp;
+                                                        {{trans('students_trans.delete_student')}}</a>  
                                                
                                             </div>
-                                        </div>
+                                        
                                     </td>
                                      
 
@@ -129,7 +130,7 @@
                 </div>
             </div>
         </div>
-
+     
     </div>
     <!-- row closed -->
 @endsection

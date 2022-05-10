@@ -30,7 +30,6 @@ class FeesInvoicesRepository implements FeesInvoicesRepositoryInterface
   {
    try{
       $studentID = Crypt::decrypt($id);
-
       $student = Student::findOrFail($studentID);
       $fees = Fees::where('classroom_id', $student->classroom_id)->get();
        

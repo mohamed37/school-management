@@ -88,7 +88,9 @@ class PaymentStudentRepository implements PaymentStudentRepositoryInterface
   
   public function edit($id)
   {
-     $payment = PaymentStudent::findOrFail($id);
+     
+     $paymentID = Crypt::decrypt($id);
+     $payment = PaymentStudent::findOrFail($paymentID);
       return view('dashboard.Fees.payment_students.edit',compact('payment'));
   } 
 

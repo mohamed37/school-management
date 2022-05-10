@@ -75,7 +75,7 @@
                                             <div class="modal-body">
                                                 <p> {{ trans('promotion_trans.revers_promotions') }}</p>
                                                 <input type="hidden" name="page_id"  value="1">
-                                                <input class="text" type="hidden" id="delete_all_id" name="delete_all_id" value=''>
+                                                <input class="text" type="text" id="delete_all_id" name="delete_all_id" value=''>
 
 
                                             </div>

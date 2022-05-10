@@ -29,8 +29,8 @@ class ReceiptStudentsRepository implements ReceiptStudentsRepositoryInterface
    try{
       $studentID = Crypt::decrypt($id);
       $student = Student::findOrFail($studentID);  
-    
-      return view('dashboard.fees.receipt_students.create',compact('student'));
+      $fee = DB::table('fees')->sum("amount");
+      return view('dashboard.fees.receipt_students.create',compact('student','fee'));
 
    }catch(\Exception $ex)
    {
@@ -43,13 +43,21 @@ class ReceiptStudentsRepository implements ReceiptStudentsRepositoryInterface
   public function insert($request)
   {
    try{
+      
+
       DB::beginTransaction();
    
       $receipt = new receiptStudents();
-   //dd($request);
+
       $receipt->date = date('Y-m-d');
       $receipt->student_id = $request->student_id;
-      $receipt->debit = $request->debit;
+      if($request->has('debit') && $request->debit > $request->prescribed_amount)
+      {
+         toastr()->error(trans('messages.not_allow_processingFees'));
+         return redirect()->back();
+      }else{
+         $receipt->debit = $request->debit;
+      }
       $receipt->description = $request->description;
       $receipt->save();
 
@@ -66,13 +74,16 @@ class ReceiptStudentsRepository implements ReceiptStudentsRepositoryInterface
       $student_account = new studentAccount();
       
       $student_account->date = date('Y-m-d');
-      $student_account->type = 'invoice';
+      $student_account->type = 'receipt';
       $student_account->receipt_id = $receipt->id;
       $student_account->student_id = $request->student_id;
       $student_account->debit = 0.00;
       $student_account->credit = $request->debit;
       $student_account->description = $request->description;
       $student_account->save();
+
+      //return $request;
+      //dd($request);
 
 
       DB::commit();
@@ -82,7 +93,6 @@ class ReceiptStudentsRepository implements ReceiptStudentsRepositoryInterface
    }catch(\Exception $ex)
    {
       DB::rollback();
-      return $ex;
       toastr()->error(trans('messages.error'));
       return redirect()->back();
    }
@@ -91,7 +101,8 @@ class ReceiptStudentsRepository implements ReceiptStudentsRepositoryInterface
   /*********** */
   public function edit($id)
   {
-     $receipt_student = receiptStudents::findOrFail($id);
+     $studentID = Crypt::decrypt($id);
+     $receipt_student = receiptStudents::findOrFail($studentID);
    
      return view('dashboard.fees.receipt_students.edit',compact('receipt_student'));
   } 

@@ -23,6 +23,9 @@ return [
     'required' => 'Event Title Is Required',
     'not_found' => 'Not Found Information',
 
+    'not_allow_processingFees' =>  'The ProcessingFees Don’t Allow ',
+
+
 ];
 
 ?>

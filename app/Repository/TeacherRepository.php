@@ -5,6 +5,7 @@ use App\Models\Gender;
 use App\Models\Teacher;
 use App\Models\Specialization;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Crypt;
 use App\Repository\TeacherRepositoryInterface;
 
 class TeacherRepository implements TeacherRepositoryInterface{
@@ -55,7 +56,8 @@ class TeacherRepository implements TeacherRepositoryInterface{
 
     public function editTeacher($request)
     {
-        $teacher = Teacher::findOrFail($request);
+        $teacherID = Crypt::decrypt($request);
+        $teacher = Teacher::findOrFail($teacherID);
         $specializations = Specialization::all();
         $genders = Gender::all();
 

@@ -33,10 +33,13 @@ return [
    'edit_receipt_students' => 'Edit Receipt Students',
    'delete_receipt_students' =>'Delete Receipt Students',
 
-
+   'paid_amount' => 'Paid Amount ',
+   'prescribed_amount' => 'Prescribed Amount  ',
+   'remaining_amount' => 'Remaining Amount',
 
   
-    'final_balance' => 'Final Balance',
+   'rest_payment' => 'Rest Of The Payment',
+
 
   
    'add_processingFees' => 'Create Processing Fees',

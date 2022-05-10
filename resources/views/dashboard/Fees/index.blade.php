@@ -53,8 +53,8 @@
                                 <th>#</th>
                                 <th>{{ trans('fees_trans.title') }}</th>
                                 <th>{{ trans('fees_trans.amount') }}</th>
-                                <th>{{ trans('graduate_trans.grade') }}</th>
-                                <th>{{ trans('graduate_trans.classrooms') }}</th>
+                                <th>{{ trans('fees_trans.grade') }}</th>
+                                <th>{{ trans('fees_trans.classrooms') }}</th>
                                 <th>{{ trans('fees_trans.year') }}</th>
                                 <th>{{ trans('Grades_trans.notes') }}</th>
                                 <th>{{ trans('main_trans.processes') }}</th>

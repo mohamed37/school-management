@@ -24,8 +24,7 @@ class StudentRepository implements StudentRepositoryInterface
    {
       try{
          $students = Student::get();
-        
-
+         
          return view('dashboard.students.index',compact('students'));
   
       }catch(\Exception $ex)

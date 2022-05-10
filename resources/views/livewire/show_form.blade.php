@@ -9,7 +9,7 @@
 @section('content')
 <!-- row -->
 {{
-    $title = trans('parent_trans.add_parent'),
+    $title = trans('parent_trans.parents'),
   
     $dashboard =  trans('main_trans.dashboard'),
      

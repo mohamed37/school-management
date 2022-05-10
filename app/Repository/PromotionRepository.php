@@ -133,8 +133,6 @@ class PromotionRepository implements PromotionRepositoryInterface
       }catch(\Exception $ex)
       {
          DB::rollBack();
-
-         return $ex;
          toastr()->error(trans('messages.error'));
          return redirect()->back();
       }

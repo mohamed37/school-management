@@ -8,12 +8,12 @@
 {{
     $title = trans('fees_trans.add_receipt_students'),
   
-    $dashboard =  trans('main_trans.dashboard'
-
-
-),
+    $dashboard =  trans('main_trans.dashboard'),
+    
      
  }}
+                              
+
 @section('title')     {{ $title }}  @stop
 @section('content')
     <!-- row -->
@@ -36,14 +36,30 @@
                             @csrf
                             <div class="row">
                                 
-                                <div class="col-md-12">
+                               
+                                <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>{{ trans('fees_trans.amount') }} : <span class="text-danger">*</span></label>
+                                        <label>{{ trans('fees_trans.paid_amount') }} : <span class="text-danger">*</span></label>
                                         <input  class="form-control" name="debit" type="number" >
                                         <input  type="hidden" name="student_id"  value="{{$student->id}}" class="form-control">
                                     </div>
                                 </div>
 
+                                
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>{{ trans('fees_trans.prescribed_amount') }}</label>
+                                            <input  class="form-control" name="prescribed_amount" value="{{$fee}}" readonly >
+                                        </div>
+                                    </div>
+                                    
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>{{ trans('fees_trans.remaining_amount') }}</label>
+                                        <input  class="form-control " name="remaining_amount" value="" readonly>
+                                    </div>
+                                </div>
+                              
                             </div>
 
                             <div class="row">
@@ -66,4 +82,19 @@
 @section('js')
     @toastr_js
     @toastr_render
+    <script>
+        $('input[name=debit]').on('keyup', function(){
+            var prescribed_amount = parseFloat($('input[name=prescribed_amount]').val()),
+                debit = parseFloat($(this).val());
+                
+                if(prescribed_amount < debit)
+                {
+
+                    $('input[name=remaining_amount]').empty().addClass('text-danger').val("غير مسموح ");
+                }else{
+                    
+                    $('input[name=remaining_amount]').val(parseFloat(prescribed_amount - debit))
+                }
+        });
+    </script>
 @endsection

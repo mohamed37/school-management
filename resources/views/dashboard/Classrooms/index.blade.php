@@ -240,7 +240,7 @@
                     {{ csrf_field() }}
                     <div class="modal-body">
                         {{ trans('classrooms_trans.warning_class') }}
-                        <input class="text" type="text" id="delete_all_id" name="delete_all_id" value=''>
+                        <input class="text" type="hidden" id="delete_all_id" name="delete_all_id" value=''>
                     </div>
 
                     <div class="modal-footer">
